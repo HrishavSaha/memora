@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStore } from '../Store';
-import { CheckCircle2, Circle, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
+import { CheckCircle2, Circle, ChevronLeft, ChevronRight, Clock, Brain } from 'lucide-react';
 import PatternDrumGame from '../components/PatternDrumGame';
 
 const GAMES = [
@@ -207,6 +207,27 @@ export default function PatientHome() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* MoCA check-in prompt */}
+      <div className="mt-8 bg-navy text-white rounded-3xl p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
+            <Brain size={28} />
+          </div>
+          <div>
+            <p className="font-bold text-lg">Appointment coming up</p>
+            <p className="text-white/80 text-sm">
+              Your next check-in is around the corner — a quick round of Tile Recall keeps your mind sharp and warmed up for it.
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => setActiveGame('tile')}
+          className="bg-white text-navy font-bold px-6 py-3 rounded-xl hover:bg-cream transition-colors shrink-0"
+        >
+          New Game
+        </button>
       </div>
     </div>
   );
