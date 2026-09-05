@@ -271,7 +271,7 @@ export default function PatternDrumGame() {
         )}
         {phase === "success" && (
           <button onClick={startRound} style={{ background: COLORS.accent, color: "#FFFFFF", border: "none", borderRadius: 16, padding: "14px 32px", fontSize: 16, fontWeight: 700, fontFamily: FONT_HEAD, cursor: "pointer" }}>
-            Try Next Level
+            Try Next Pattern
           </button>
         )}
       </div>
