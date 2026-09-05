@@ -26,6 +26,9 @@ ChartJS.register(
   Filler
 );
 
+ChartJS.defaults.font.family = "Inter, 'Segoe UI', sans-serif";
+ChartJS.defaults.color = '#4A4038';
+
 export default function DoctorDashboard() {
   const [patient] = useState("Kamala Devi");
   const [gameStats] = useStore('gameStats', { score: 70, mistakes: 0 });
@@ -114,26 +117,26 @@ export default function DoctorDashboard() {
 
   return (
     <div className="max-w-6xl mx-auto py-8 px-6">
-      <div className="bg-white border border-[#E3D2B8] rounded-2xl p-6 mb-6 shadow-sm flex items-center justify-between">
+      <div className="bg-white border border-border rounded-2xl p-6 mb-6 shadow-sm flex items-center justify-between">
         <div>
           <h2 className="text-xl font-bold font-serif text-text mb-1">Doctor Portal (Clinical View)</h2>
           <p className="text-sm text-text-light">Patient: <strong>{patient}</strong> | Age: 74 | Diagnosis: Mild NCD</p>
         </div>
-        <div className="bg-cream-dark px-4 py-2 rounded-xl border border-[#E3D2B8] text-sm font-semibold text-text-light">
+        <div className="bg-cream-dark px-4 py-2 rounded-xl border border-border text-sm font-semibold text-text-light">
           Private Clinical Data
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <div className="bg-white border border-[#E3D2B8] rounded-2xl p-6 shadow-sm h-80">
+        <div className="bg-white border border-border rounded-2xl p-6 shadow-sm h-80">
           <Bar options={barOptions} data={currentVsLastData} />
         </div>
-        <div className="bg-white border border-[#E3D2B8] rounded-2xl p-6 shadow-sm h-80">
+        <div className="bg-white border border-border rounded-2xl p-6 shadow-sm h-80">
           <Line options={lineOptions1} data={prevAppointmentsData} />
         </div>
       </div>
 
-      <div className="bg-white border border-[#E3D2B8] rounded-2xl p-6 shadow-sm h-96">
+      <div className="bg-white border border-border rounded-2xl p-6 shadow-sm h-96">
         <Line options={lineOptions2} data={overallTrajectoryData} />
       </div>
     </div>

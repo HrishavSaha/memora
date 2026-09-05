@@ -16,8 +16,8 @@ const COLORS = {
   primary: "#5A3161",    
   primaryLight: "#F6E1CC", 
   accent: "#8A5A2E",     
-  text: "#3D2817",       
-  subtext: "#6B5B4E",
+  text: "#2A2420",
+  subtext: "#4A4038",
   white: "#FFFFFF",
   border: "#E3D2B8",
 };
@@ -61,13 +61,13 @@ export default function CaretakerDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Management Tools */}
         <div style={{ background: COLORS.white, border: `1px solid ${COLORS.border}` }} className="rounded-2xl p-6 shadow-sm">
-          <h3 className="font-bold text-text mb-4 text-lg">Manage Reminders</h3>
+          <h3 className="text-sm font-bold tracking-wider uppercase text-text-light mb-4">Manage Reminders</h3>
           <div className="flex flex-col gap-4">
-            <label className="flex items-center justify-between p-3 border border-[#E3D2B8] rounded-xl cursor-pointer hover:bg-gray-50">
+            <label className="flex items-center justify-between p-3 border border-border rounded-xl cursor-pointer hover:bg-peach/40">
               <span className="font-semibold text-text">Morning Medicine</span>
               <input type="checkbox" checked={reminders.medicine} onChange={() => setReminders({...reminders, medicine: !reminders.medicine})} className="w-5 h-5 accent-teal-dark" />
             </label>
-            <label className="flex items-center justify-between p-3 border border-[#E3D2B8] rounded-xl cursor-pointer hover:bg-gray-50">
+            <label className="flex items-center justify-between p-3 border border-border rounded-xl cursor-pointer hover:bg-peach/40">
               <span className="font-semibold text-text">Hydration (Drink Water)</span>
               <input type="checkbox" checked={reminders.hydration} onChange={() => setReminders({...reminders, hydration: !reminders.hydration})} className="w-5 h-5 accent-teal-dark" />
             </label>
@@ -77,7 +77,7 @@ export default function CaretakerDashboard() {
         {/* Progress & Alerts */}
         <div style={{ background: COLORS.white, border: `1px solid ${COLORS.border}` }} className="rounded-2xl p-6 shadow-sm flex flex-col justify-between">
           <div>
-            <h3 className="font-bold text-text mb-4 text-lg">Caregiver Alert System</h3>
+            <h3 className="text-sm font-bold tracking-wider uppercase text-text-light mb-4">Caregiver Alert System</h3>
             {gameStats.mistakes > 5 ? (
               <div className="bg-red-50 border border-red-200 p-4 rounded-xl text-mascot-red flex gap-3">
                 <Activity size={24} className="shrink-0" />
@@ -95,13 +95,13 @@ export default function CaretakerDashboard() {
 
       {/* Trend Chart (from Template) */}
       <div style={{ background: COLORS.white, border: `1px solid ${COLORS.border}` }} className="rounded-2xl p-6 shadow-sm">
-        <h3 className="font-bold text-text mb-4 text-lg">Weekly Cognitive Engagement</h3>
+        <h3 className="text-sm font-bold tracking-wider uppercase text-text-light mb-4">Weekly Cognitive Engagement</h3>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={trendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
             <CartesianGrid stroke={COLORS.border} vertical={false} />
-            <XAxis dataKey="session" tick={{ fontSize: 12, fill: COLORS.subtext }} axisLine={{ stroke: COLORS.border }} tickLine={false} />
-            <YAxis tick={{ fontSize: 12, fill: COLORS.subtext }} axisLine={false} tickLine={false} domain={[40, 90]} />
-            <Tooltip contentStyle={{ borderRadius: 10, border: `1px solid ${COLORS.border}`, fontSize: 12 }} />
+            <XAxis dataKey="session" tick={{ fontSize: 12, fill: COLORS.subtext, fontFamily: 'Inter, Segoe UI, sans-serif' }} axisLine={{ stroke: COLORS.border }} tickLine={false} />
+            <YAxis tick={{ fontSize: 12, fill: COLORS.subtext, fontFamily: 'Inter, Segoe UI, sans-serif' }} axisLine={false} tickLine={false} domain={[40, 90]} />
+            <Tooltip contentStyle={{ borderRadius: 10, border: `1px solid ${COLORS.border}`, fontSize: 12, fontFamily: 'Inter, Segoe UI, sans-serif' }} />
             <Line type="monotone" dataKey="score" stroke={COLORS.primary} strokeWidth={3} dot={{ r: 4, fill: COLORS.primary }} activeDot={{ r: 6 }} />
           </LineChart>
         </ResponsiveContainer>

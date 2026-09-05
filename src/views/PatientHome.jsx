@@ -84,7 +84,7 @@ export default function PatientHome() {
   return (
     <div className="max-w-4xl mx-auto py-8 px-6">
       {/* Header */}
-      <div className="bg-cream-dark border-[3px] border-[#E3D2B8] rounded-[32px] p-6 shadow-md mb-8 flex flex-col md:flex-row items-center gap-6">
+      <div className="bg-cream-dark border-[3px] border-border rounded-[32px] p-6 shadow-md mb-8 flex flex-col md:flex-row items-center gap-6">
         <div className="w-24 h-24 bg-cream rounded-full border-2 border-mascot-red flex items-center justify-center overflow-hidden shadow-inner">
           <img src="/mascot.png" alt="Remi the Red Panda" className="w-full h-full object-contain p-1" />
         </div>
@@ -99,27 +99,33 @@ export default function PatientHome() {
       <div className="mb-10">
         <h2 className="text-sm font-bold tracking-wider uppercase text-text-light mb-4">Daily Reminders</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div 
+          <button
+            type="button"
+            role="checkbox"
+            aria-checked={reminders.medicine}
             onClick={() => toggleReminder('medicine')}
-            className={`p-4 rounded-2xl flex items-center gap-4 cursor-pointer transition-colors ${reminders.medicine ? 'bg-navy text-white' : 'bg-cream-dark text-text hover:bg-peach'}`}
+            className={`p-4 rounded-2xl flex items-center gap-4 cursor-pointer transition-colors text-left ${reminders.medicine ? 'bg-navy text-white' : 'bg-cream-dark text-text hover:bg-peach'}`}
           >
             {reminders.medicine ? <CheckCircle2 size={24} /> : <Circle size={24} />}
             <span className="font-semibold text-lg">Morning Medicine</span>
-          </div>
-          <div 
+          </button>
+          <button
+            type="button"
+            role="checkbox"
+            aria-checked={reminders.hydration}
             onClick={() => toggleReminder('hydration')}
-            className={`p-4 rounded-2xl flex items-center gap-4 cursor-pointer transition-colors ${reminders.hydration ? 'bg-teal-dark text-white' : 'bg-cream-dark text-text hover:bg-peach'}`}
+            className={`p-4 rounded-2xl flex items-center gap-4 cursor-pointer transition-colors text-left ${reminders.hydration ? 'bg-teal-dark text-white' : 'bg-cream-dark text-text hover:bg-peach'}`}
           >
             {reminders.hydration ? <CheckCircle2 size={24} /> : <Circle size={24} />}
             <span className="font-semibold text-lg">Drink Water</span>
-          </div>
+          </button>
         </div>
       </div>
 
       {/* Calendar */}
       <div className="mb-10">
         <h2 className="text-sm font-bold tracking-wider uppercase text-text-light mb-4">Upcoming Schedule</h2>
-        <div className="bg-cream-dark border-[3px] border-[#E3D2B8] rounded-3xl p-6 shadow-md flex flex-col md:flex-row gap-6">
+        <div className="bg-cream-dark border-[3px] border-border rounded-3xl p-6 shadow-md flex flex-col md:flex-row gap-6">
           {/* Month grid */}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-4">
@@ -164,7 +170,7 @@ export default function PatientHome() {
           </div>
 
           {/* Upcoming list */}
-          <div className="flex-1 md:border-l md:border-[#E3D2B8] md:pl-6">
+          <div className="flex-1 md:border-l md:border-border md:pl-6">
             <h3 className="text-xs font-bold tracking-wider uppercase text-text-light mb-3">Next Appointments</h3>
             {upcoming.length === 0 ? (
               <p className="text-text-light text-sm">No upcoming appointments.</p>
@@ -172,7 +178,7 @@ export default function PatientHome() {
               <ul className="space-y-3">
                 {upcoming.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-cream flex items-center justify-center shrink-0 border border-[#E3D2B8]">
+                    <div className="w-10 h-10 rounded-xl bg-cream flex items-center justify-center shrink-0 border border-border">
                       <Clock size={18} className="text-mascot-red" />
                     </div>
                     <div>
@@ -195,7 +201,7 @@ export default function PatientHome() {
             <div 
               key={game.id} 
               onClick={() => game.active ? setActiveGame(game.id) : null}
-              className={`p-6 rounded-2xl flex flex-col items-center justify-center text-center transition-transform ${game.active ? 'cursor-pointer hover:scale-105 shadow-md bg-cream-dark border border-[#E3D2B8]' : 'opacity-60 cursor-not-allowed bg-gray-100'}`}
+              className={`p-6 rounded-2xl flex flex-col items-center justify-center text-center transition-transform ${game.active ? 'cursor-pointer hover:scale-105 shadow-md bg-cream-dark border border-border' : 'opacity-60 cursor-not-allowed bg-peach'}`}
             >
               <div className={`w-12 h-12 rounded-xl mb-3 flex items-center justify-center text-xl shadow-sm ${game.color} ${game.textColor}`}>
                 {game.id === 'flashcards' && '🎴'}
