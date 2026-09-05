@@ -261,7 +261,7 @@ export default function PatternDrumGame() {
       <div style={{ padding: "14px 24px 26px", textAlign: "center" }}>
         {phase === "idle" && (
           <button onClick={startRound} style={{ background: COLORS.primary, color: "#FFFFFF", border: "none", borderRadius: 16, padding: "14px 32px", fontSize: 16, fontWeight: 700, fontFamily: FONT_HEAD, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8 }}>
-            <Play size={18} /> Play Pattern (Lvl {currentLevel})
+            <Play size={18} /> Play Pattern
           </button>
         )}
         {phase === "showing" && (
